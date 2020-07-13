@@ -6,7 +6,8 @@ const PropietarioSchema = new Schema({
     nombres: { type: String, required: true },
     dni: { type: Number, required: true },
     email: { type: String, required: true },
-    telefono: { type: Number, required: true },
+    teléfono: { type: Number, required: true },
+    dirección: { type: String, required: true },
     borrado: { type: Boolean, default: false, required: true }
 })
 
