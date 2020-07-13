@@ -28,12 +28,6 @@ propietarioCtlr.getPropietario = async(req, res) => {
 }
 
 propietarioCtlr.editPropietario = async(req, res) => {
-    /*const vPropietario = new Propietario(req.body);
-    await Propietario.findByIdAndUpdate(req.params.id, { $set: vPropietario }, { new: true });
-    res.json({
-        status: 200
-    })*/
-
     const oPropietario = new Propietario(req.body);
     console.log(oPropietario);
     const prop = Propietario.findById(req.params.id);

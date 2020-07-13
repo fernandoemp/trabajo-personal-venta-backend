@@ -4,12 +4,13 @@ const auth = require('../middlewares/auth')
 const AuthAdministrativoAdministrador = require('../middlewares/authAdministrativoAdministrador')
 const authAdministrador = require('../middlewares/authAdministrador')
 
-const productoCtrl = require('./../controllers/producto.controller');
+const articuloCtrl = require('./../controllers/articulo.controller');
 
-router.get('/', productoCtrl.getProductos);
-router.post('/', productoCtrl.createProducto);
-router.put('/:id', productoCtrl.editProducto);
-router.get('/:id', productoCtrl.getProducto);
-router.delete('/:id', productoCtrl.deleteProducto);
+router.get('/', articuloCtrl.getArticulos);
+router.post('/', auth, articuloCtrl.createArticulo);
+router.put('/:id', articuloCtrl.editArticulo);
+router.get('/:id', articuloCtrl.getArticulo);
+router.delete('/:id', articuloCtrl.deleteArticulo);
+
 //exportacion del modulo de rutas
 module.exports = router;

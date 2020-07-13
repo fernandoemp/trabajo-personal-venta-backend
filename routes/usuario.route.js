@@ -6,11 +6,11 @@ const authAdministrador = require('../middlewares/authAdministrador')
 const usuarioCtrl = require('./../controllers/usuario.controller');
 
 // definiendo rutas
-router.get('/', authAdministrativoAdministrador, usuarioCtrl.getUsuarios);
+router.get('/', auth, usuarioCtrl.getUsuarios);
 router.put('/:id', auth, usuarioCtrl.editUsuario);
 router.put('/change/:id', auth, usuarioCtrl.setNewPasswordUsuario);
 router.put('/bann/:email', usuarioCtrl.bannUsuario);
-router.post('/signup', authAdministrador, usuarioCtrl.signUp); //registro
+router.post('/signup', usuarioCtrl.signUp); //registro
 router.post('/signin', usuarioCtrl.signIn); //login
 router.post('/signinFB', usuarioCtrl.signInFB); //loginFB
 router.get('/user', usuarioCtrl.getUser); // obsoleto
