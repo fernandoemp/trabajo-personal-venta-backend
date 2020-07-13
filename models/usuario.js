@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt-nodejs");
 const Mensaje = require('./mensaje');
 const Carrito = require('./carrito');
+const Articulo = require('./articulo');
 const { Schema } = mongoose;
 
 const UsuarioSchema = new Schema({
@@ -14,9 +15,8 @@ const UsuarioSchema = new Schema({
     fechaAltaUsuario: { type: Date, required: false },
     mensajes: { type: [Mensaje.schema], required: false },
     carrito: { type: Carrito.schema, required: false },
-
+    compras: { type: [Articulo.schema], required: false }
 });
-
 
 //metodo de encriptacion
 /*antes de el guardado de el usuario, y justamente antes del metodo "save", se comprueba si la contraseña

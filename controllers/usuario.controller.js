@@ -1,5 +1,5 @@
 const Usuario = require('./../models/usuario');
-const Propietario = require('./../models/propietario');
+const Cliente = require('./../models/cliente');
 const tokenService = require('../services/tokenService');
 const bcrypt = require("bcrypt-nodejs");
 const { findOne, findById } = require('./../models/usuario');
@@ -7,12 +7,6 @@ const Mensaje = require('../models/mensaje');
 const usuarioCtrl = {}
 
 usuarioCtrl.signUp = async(req, res) => {
-    const usuario = new Usuario(req.body);
-    if (usuario.perfil == "Propietario") {
-        const prop = await Propietario.findOne({ "email": usuario.usuario });
-        if (!prop) return res.status(404).send({ message: "El propietario aun no se encuentra registrado" });
-    }
-
     const user = await Usuario.findOne({ "usuario": usuario.usuario });
     if (user) return res.status(403).send({ message: "El usuario ya se encuentra registrado" });
     await usuario.save((err) => {
@@ -53,6 +47,7 @@ usuarioCtrl.signInFB = async(req, res) => {
     })
 }
 
+/*
 usuarioCtrl.getUser = async(req, res) => {
     if (!req.headers.authorization) {
         return res.status(403).send({ auth: false, message: 'No tienes autorizacion' })
@@ -66,7 +61,7 @@ usuarioCtrl.getUser = async(req, res) => {
         .catch(response => {
             res.status(403).send({ message: 'Error usuario invalido' })
         })
-}
+}*/
 
 usuarioCtrl.getUsuarios = async(req, res) => {
     await Usuario.find({}, "-password", (error, usuarios) => {

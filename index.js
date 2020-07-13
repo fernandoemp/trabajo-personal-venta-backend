@@ -20,10 +20,10 @@ app.use(cors({ origin: 'http://localhost:4200' }));
 app.use(morgan('dev'));
 
 app.use('/api/usuarios', require('./routes/usuario.route'));
-app.use('/api/novedades', require('./routes/novedad.route'));
-app.use('/api/contratos', require('./routes/contrato.route'));
-app.use('/api/locales', require('./routes/local.route'));
-app.use('/api/propietarios', require('./routes/propietario.route'));
+app.use('/api/consultas', require('./routes/consulta.route'));
+app.use('/api/articulos', require('./routes/articulo.route'));
+app.use('/api/productos', require('./routes/producto.route'));
+app.use('/api/clientes', require('./routes/cliente.route'));
 app.use('/api/mensajes', require('./routes/mensaje.route'));
 app.use('/api/noticias', require('./routes/noticia.route'));
 
@@ -35,13 +35,3 @@ app.set('port', process.env.PORT || 3000);
 app.listen(app.get('port'), () => {
     console.log(`Server started on port`, app.get('port'));
 });
-
-/*enzo
-https.createServer({
-    key: fs.readFileSync('selfsigned.key'),
-    cert: fs.readFileSync('selfsigned.crt')
-  }, app)
-  .listen(3000, function () {
-    console.log('Example app listening on port 3000! Go to https://localhost:3000/')
-  })
- */

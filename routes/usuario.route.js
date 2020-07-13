@@ -13,7 +13,7 @@ router.put('/bann/:email', usuarioCtrl.bannUsuario);
 router.post('/signup', usuarioCtrl.signUp); //registro
 router.post('/signin', usuarioCtrl.signIn); //login
 router.post('/signinFB', usuarioCtrl.signInFB); //loginFB
-router.get('/user', usuarioCtrl.getUser); // obsoleto
+// router.get('/user', usuarioCtrl.getUser); // obsoleto
 router.get('/mensaje/:id&:fechaprocesado', auth, usuarioCtrl.findMensajeUsuario);
 router.get('/:id', auth, usuarioCtrl.getUsuario);
 router.get('/email/:email', auth, usuarioCtrl.getUsuarioByEmail);

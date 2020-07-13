@@ -4,7 +4,7 @@ const Articulo = require('./articulo');
 const { Schema } = mongoose;
 
 const CarritoSchema = new Schema({
-    articulos: { type: [Schema.Types.ObjectId], ref: Articulo, required: false },
-    total: { type: number, default: 0 }
+    articulos: { type: [Articulo.schema], required: false },
+    total: { type: Number, default: 0 }
 });
 module.exports = mongoose.model('Carrito', CarritoSchema);

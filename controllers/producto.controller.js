@@ -5,7 +5,7 @@ productoCtrl.getProductos = async(req, res) => {
     await Producto.find().exec(function(error, productos) {
         if (error) return res.status(500).send({ message: `Error al realizar la peticion: ${error}` })
         if (!productos) return res.status(404).send({ message: "No existen productos" })
-        res.status(200).send({ articulos })
+        res.status(200).send({ productos })
     })
 }
 
